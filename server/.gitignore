@@ -1,0 +1,22 @@
+# Environment variables
+.env
+
+# Data directory
+data/
+
+# Python cache files
+__pycache__/
+ai_model/__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
