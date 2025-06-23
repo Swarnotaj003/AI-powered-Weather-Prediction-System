@@ -20,7 +20,7 @@ class WeatherService {
         temperature: map['temperature'].toStringAsFixed(1),
         humidity: map['humidity'].toStringAsFixed(1),
         pressure: map['pressure'].toStringAsFixed(1),
-        skyConditions: List<String>.from(map['sky_condition'].split(",")),
+        skyConditions: List<String>.from(map['sky_condition'].split(", ")),
       );
     }
     catch (e) {

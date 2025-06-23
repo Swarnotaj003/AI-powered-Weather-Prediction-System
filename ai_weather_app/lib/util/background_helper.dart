@@ -46,6 +46,10 @@ String getWeatherAnimation(List<String> skyConditions, bool isDay) {
     return url;
   }
 
+  for (String skyCondition in skyConditions) {
+    skyCondition.trim();
+  }
+
   // | Temperature | Humidity    | Pressure       | Background Theme        |
   // | ----------- | ----------- | -------------- | ----------------------- |
   // | X	         | Humid/Rainy | Probable storm | Storm		                |

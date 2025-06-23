@@ -63,8 +63,8 @@ class _SensorDashboardState extends State<SensorDashboard> {
                         ),
                         child: MyLineGraph(                          
                           dataPoints: dataManager.temperatures,
-                          minVal: (getMinPoint((dataManager.temperatures)) * 0.75).floorToDouble(),
-                          maxVal: (getMaxPoint((dataManager.temperatures)) * 1.25).ceilToDouble(),
+                          minVal: (getMinPoint((dataManager.temperatures)) - 1).floorToDouble(),
+                          maxVal: (getMaxPoint((dataManager.temperatures)) + 1).ceilToDouble(),
                           ylabel: 'Temperature (in °C)',
                           myGradientColors: [Colors.pink[400]!, Colors.red[700]!],
                         ),
@@ -84,8 +84,8 @@ class _SensorDashboardState extends State<SensorDashboard> {
                         ),
                         child: MyLineGraph(
                           dataPoints: dataManager.humidities,
-                          minVal: (getMinPoint(dataManager.humidities) * 0.75).floorToDouble(),
-                          maxVal: (getMaxPoint(dataManager.humidities) * 1.25).ceilToDouble(),
+                          minVal: (getMinPoint(dataManager.humidities) - 1).floorToDouble(),
+                          maxVal: (getMaxPoint(dataManager.humidities) + 1).ceilToDouble(),
                           ylabel: 'Humidity (in %)',
                           myGradientColors: [
                             Colors.lightBlue[400]!,
@@ -108,8 +108,8 @@ class _SensorDashboardState extends State<SensorDashboard> {
                         ),
                         child: MyLineGraph(
                           dataPoints: dataManager.pressures,
-                          minVal: (getMinPoint(dataManager.pressures) * 0.75).floorToDouble(),
-                          maxVal: (getMaxPoint(dataManager.pressures) * 1.25).ceilToDouble(),
+                          minVal: (getMinPoint(dataManager.pressures) - 1).floorToDouble(),
+                          maxVal: (getMaxPoint(dataManager.pressures) + 1).ceilToDouble(),
                           ylabel: 'Pressure (in hPa)',
                           myGradientColors: [
                             Colors.lightGreen[400]!,

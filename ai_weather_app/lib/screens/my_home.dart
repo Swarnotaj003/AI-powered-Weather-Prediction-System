@@ -24,10 +24,9 @@ class _MyHomeState extends State<MyHome> {
   WeatherService service = WeatherService();
   SensorDataManager dataManager = SensorDataManager();
 
-  // Current weather
+  // State members
   WeatherData? current;
-
-  // 7-day forecast data
+  LottieComposition? animation;
   List<ForecastData> forecast = [];
 
   // Determine if its day or night
@@ -46,10 +45,16 @@ class _MyHomeState extends State<MyHome> {
         pressure: double.tryParse(newCurrent.pressure) ?? 0.0,
       );
 
-      // update UI
+      // update data
       setState(() {
         current = newCurrent;
         forecast = newForecast;
+      });
+
+      // update animation
+      LottieComposition newAnimation = await NetworkLottie(getWeatherAnimation(current!.skyConditions, isDay)).load();
+      setState(() {
+        animation = newAnimation;
       });
     }
   }
@@ -65,6 +70,7 @@ class _MyHomeState extends State<MyHome> {
     // use timer for periodic data fetch
     timer = Timer.periodic(frameRate, (timer) async {
       WeatherData newCurrent = await service.getSensorData();
+      LottieComposition newAnimation = await NetworkLottie(getWeatherAnimation(newCurrent.skyConditions, isDay)).load();
       List<ForecastData> newForecast = await service.getForecastData();
 
       // update sensor data too
@@ -77,6 +83,7 @@ class _MyHomeState extends State<MyHome> {
       // update UI
       setState(() {
         current = newCurrent;
+        animation = newAnimation;
         forecast = newForecast;
       });
     });
@@ -134,19 +141,12 @@ class _MyHomeState extends State<MyHome> {
                       ),
                       // Right: Weather animation
                       Expanded(
-                        child: FutureBuilder<LottieComposition>(
-                          future: NetworkLottie(getWeatherAnimation(current == null ? [] : current!.skyConditions, isDay)).load(),
-                          builder: (context, snapshot) {
-                            if (!snapshot.hasError && snapshot.hasData) {
-                              return Lottie(
-                                composition: snapshot.data!,
+                        child: animation != null
+                            ? Lottie(
+                                composition: animation!,
                                 fit: BoxFit.contain,
-                              );
-                            } else {
-                              return Center(child: CircularProgressIndicator(color: Colors.white,));
-                            }
-                          },
-                        ),
+                              )
+                            : Center(child: CircularProgressIndicator(color: Colors.white)),
                       ),
                     ],
                   ),

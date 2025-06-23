@@ -133,7 +133,7 @@ class _MyLineGraphState extends State<MyLineGraph> {
           maxX: 6,
 
           // Range of y-axis for data points
-          minY: widget.minVal,
+          minY: widget.minVal > 0 ? widget.minVal : 0,
           maxY: widget.maxVal,
 
           lineBarsData: [
