@@ -1,4 +1,4 @@
-# AI-powered Weather Prediction App 🌤🤖📱
+# AI-powered Weather Prediction System 🌤🤖/ Flutter App 📱
 
 A modern `Flutter` application that provides real-time weather conditions and AI-powered forecasts. The app connects to a Flask backend server that uses machine learning to predict weather patterns.
 

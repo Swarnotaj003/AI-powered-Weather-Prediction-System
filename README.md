@@ -1,4 +1,4 @@
-# AI Weather Prediction System 🌤🤖
+# AI-powered Weather Prediction System 🌤🤖
 
 ## 📘 About
 
@@ -7,15 +7,23 @@ A complete weather prediction system consisting of a `Flask backend` with machin
 ## 🏗️ System Architecture
 
 ```
-Weather Prediction System
+AI-powered-Weather-Prediction-System
+|
 ├── server/                # Flask Backend
 │   ├── api.py             # Main API server
 │   ├── ai_model/          # ML model implementation
-│   └── data/              # Historical weather data
+│   ├── data/              # Historical weather data
+│   └── .env               # Environment variables
 │
 └── ai_weather_app/        # Flutter Frontend
     ├── lib/               # Flutter application code
-    └── assets/            # App resources
+    │    ├── model/        # Model classes to store data
+    │    ├── screens/      # App screens visible to the user
+    │    ├── service/      # Service classes for backend integration
+    │    ├── util/         # Utility functions
+    │    ├── widgets/      # Reusable UI widgets
+    │    └── main.dart     # Main program/ entry point
+    └── .env               # Environment variables
 ```
 
 ## ✨ Key Features
@@ -61,8 +69,8 @@ Weather Prediction System
 
 1. **Clone the repository**:
 ```bash
-git clone <repository-url>
-cd weather-prediction-system
+git clone https://github.com/Swarnotaj003/AI-powered-Weather-Prediction-System.git
+cd AI-powered-Weather-Prediction-System
 ```
 
 2. **Backend Setup**:

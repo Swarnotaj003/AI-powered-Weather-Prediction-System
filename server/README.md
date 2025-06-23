@@ -1,4 +1,4 @@
-# AI-based Weather Prediction Server 🌤🌐🤖
+# AI-powered Weather Prediction System 🌤🤖/ Server 🌐
 
 An AI-based weather prediction server build using the `Flask` framework in `Python` that provides current weather conditions and forecasts using machine learning. The server uses historical weather data of the local zone and real-time sensor data to make accurate predictions.
 
