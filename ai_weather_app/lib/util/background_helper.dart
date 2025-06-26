@@ -67,6 +67,9 @@ String getWeatherAnimation(List<String> skyConditions, bool isDay) {
   else if (skyConditions[1] == 'Rainy') {
     url = isDay ? rainyDay : rainyNight;
   }
+  else if (skyConditions[1] == 'Humid') {
+    url = isDay ? partlyCloudy : moon;
+  }
   else if (skyConditions[0] == 'Freezing' && skyConditions[2] == 'Probable storm') {
     url = snow;
   }
@@ -80,11 +83,6 @@ String getWeatherAnimation(List<String> skyConditions, bool isDay) {
   }
   else if ((skyConditions[0] == 'Freezing' || skyConditions[0] == 'Chilly' || skyConditions[0] == 'Cool')) {
     url = windy;
-  }
-  else if (
-    (skyConditions[0] == 'Scorching' || skyConditions[0] == 'Hot' || skyConditions[0] == 'Warm') && skyConditions[2] == 'Strong wind'
-  ) {
-    url = isDay ? partlyCloudy : moon;
   }
   else if (skyConditions[0] == 'Scorching' || skyConditions[0] == 'Hot' || skyConditions[0] == 'Warm' || skyConditions[0] == 'Mild') {
     url = isDay ? sunny : moon;
